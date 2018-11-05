@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="directive.html" />
+    <link rel="prev" href="service.html" />
     
 
     </head>
@@ -152,7 +152,33 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="aop.html">
+        <li class="chapter " data-level="1.6" data-path="event.html">
+            
+                <a href="event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="service.html">
+            
+                <a href="service.html">
+            
+                    
+                    服务Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="aop.html">
             
                 <a href="aop.html">
             
@@ -211,6 +237,71 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;">&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</h1>
+<h2 id="value">value</h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">var</span> mainApp = angular.module(<span class="hljs-string">&quot;mainApp&quot;</span>, []);
+
+<span class="hljs-comment">// &#x521B;&#x5EFA; value &#x5BF9;&#x8C61; &quot;defaultInput&quot; &#x5E76;&#x4F20;&#x9012;&#x6570;&#x636E;</span>
+mainApp.value(<span class="hljs-string">&quot;defaultInput&quot;</span>, <span class="hljs-number">5</span>);
+...
+
+<span class="hljs-comment">// &#x5C06; &quot;defaultInput&quot; &#x6CE8;&#x5165;&#x5230;&#x63A7;&#x5236;&#x5668;</span>
+mainApp.controller(<span class="hljs-string">&apos;CalcController&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$scope, CalcService, defaultInput</span>) </span>{
+   $scope.number = defaultInput;
+   $scope.result = CalcService.square($scope.number);
+
+   $scope.square = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      $scope.result = CalcService.square($scope.number);
+   }
+});
+</code></pre>
+<h2 id="factory">factory</h2>
+<pre><code class="lang-javascript">
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">var</span> mainApp = angular.module(<span class="hljs-string">&quot;mainApp&quot;</span>, []);
+
+<span class="hljs-comment">// &#x521B;&#x5EFA; factory &quot;MathService&quot; &#x7528;&#x4E8E;&#x4E24;&#x6570;&#x7684;&#x4E58;&#x79EF; provides a method multiply to return multiplication of two numbers</span>
+mainApp.factory(<span class="hljs-string">&apos;MathService&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   <span class="hljs-keyword">var</span> factory = {};
+
+   factory.multiply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+      <span class="hljs-keyword">return</span> a * b
+   }
+   <span class="hljs-keyword">return</span> factory;
+}); 
+
+<span class="hljs-comment">// &#x5728; service &#x4E2D;&#x6CE8;&#x5165; factory &quot;MathService&quot;</span>
+mainApp.service(<span class="hljs-string">&apos;CalcService&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">MathService</span>)</span>{
+   <span class="hljs-keyword">this</span>.square = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{
+      <span class="hljs-keyword">return</span> MathService.multiply(a,a);
+   }
+});
+...
+</code></pre>
+<h2 id="provider">provider</h2>
+<pre><code class="lang-javascript">
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">var</span> mainApp = angular.module(<span class="hljs-string">&quot;mainApp&quot;</span>, []);
+...
+
+<span class="hljs-comment">// &#x4F7F;&#x7528; provider &#x521B;&#x5EFA; service &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x4E24;&#x6570;&#x4E58;&#x79EF;</span>
+mainApp.config(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$provide</span>) </span>{
+   $provide.provider(<span class="hljs-string">&apos;MathService&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">this</span>.$get = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+         <span class="hljs-keyword">var</span> factory = {};  
+
+         factory.multiply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+            <span class="hljs-keyword">return</span> a * b; 
+         }
+         <span class="hljs-keyword">return</span> factory;
+      };
+   });
+});
+</code></pre>
+<h2 id="constant">constant</h2>
+<pre><code class="lang-javascript">
+mainApp.constant(<span class="hljs-string">&quot;configParam&quot;</span>, <span class="hljs-string">&quot;constant value&quot;</span>);
+</code></pre>
 
                                 
                                 </section>
@@ -238,7 +329,7 @@
 
             
                 
-                <a href="directive.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 指令directive">
+                <a href="service.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 服务Service">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -250,7 +341,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"依赖注入","level":"1.6","depth":1,"previous":{"title":"指令directive","level":"1.5","depth":1,"path":"__markdown__/directive.md","ref":"./__markdown__/directive.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/aop.md","mtime":"2018-11-01T09:05:28.435Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T05:35:52.562Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"依赖注入","level":"1.8","depth":1,"previous":{"title":"服务Service","level":"1.7","depth":1,"path":"__markdown__/service.md","ref":"./__markdown__/service.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/aop.md","mtime":"2018-11-04T06:22:58.134Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-04T06:07:32.449Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

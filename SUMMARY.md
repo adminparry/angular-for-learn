@@ -5,7 +5,11 @@
 * [全局API](./__markdown__/api.md)
 * [表达式](./__markdown__/expression.md)
 * [指令directive](./__markdown__/directive.md)
+* [事件](./__markdown__/event.md)
+
+* [服务Service](./__markdown__/service.md)
 * [依赖注入](./__markdown__/aop.md)
+
 
 
 
