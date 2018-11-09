@@ -14,7 +14,12 @@
         <script>
         
         	
-            var mainApp = angular.module("myApp",[])
+            var mainApp = angular.module("myApp",[]);
+            console.log(mainApp);
+
+           
+
+
             mainApp.config(function($provide) {
                 $provide.provider('MathService', function() {
                    this.$get = function() {
@@ -29,21 +34,35 @@
              });
                 
              mainApp.value("defaultInput", 5);
-             
+
+
+            
              mainApp.service('CalcService', function(MathService){
+
                 this.square = function(a) {
                    return MathService.multiply(a,a);
                 }
              });
-             
+              mainApp.decorator('CalcService',function($delegate){
+                
+                $delegate['facker'] = $delegate['square'];
+                // this.square = $delegate['square'];
+               return $delegate;
+              
+             })
              mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
+              
+              console.log(CalcService)
+
                 $scope.number = defaultInput;
-                $scope.result = CalcService.square($scope.number);
+                $scope.result = CalcService.facker($scope.number);
 
                 $scope.square = function() {
                    $scope.result = CalcService.square($scope.number);
                 }
              });
+
+      
         </script>
     </body>
 </html>

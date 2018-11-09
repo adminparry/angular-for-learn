@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>事件 · GitBook</title>
+        <title>模块之间的通信 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="service.html" />
     
-    
-    <link rel="prev" href="directive.html" />
+    <link rel="prev" href="aop.html" />
     
 
     </head>
@@ -154,7 +152,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="event.html">
+        <li class="chapter " data-level="1.6" data-path="event.html">
             
                 <a href="event.html">
             
@@ -193,7 +191,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="communication.html">
+        <li class="chapter active" data-level="1.9" data-path="communication.html">
             
                 <a href="communication.html">
             
@@ -236,7 +234,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >事件</a>
+        <a href=".." >模块之间的通信</a>
     </h1>
 </div>
 
@@ -251,17 +249,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6;</h1>
-<p>ng-click</p>
-<p>ng-dbl-click</p>
-<p>ng-mousedown</p>
-<p>ng-mouseenter</p>
-<p>ng-mouseleave</p>
-<p>ng-mousemove</p>
-<p>ng-keydown</p>
-<p>ng-keyup</p>
-<p>ng-keypress</p>
-<p>ng-change</p>
+                                <h1 id="&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;">&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;</h1>
 
                                 
                                 </section>
@@ -289,14 +277,10 @@
 
             
                 
-                <a href="directive.html" class="navigation navigation-prev " aria-label="Previous page: 指令directive">
+                <a href="aop.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 依赖注入">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="service.html" class="navigation navigation-next " aria-label="Next page: 服务Service">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -305,7 +289,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"事件","level":"1.6","depth":1,"next":{"title":"服务Service","level":"1.7","depth":1,"path":"__markdown__/service.md","ref":"./__markdown__/service.md","articles":[]},"previous":{"title":"指令directive","level":"1.5","depth":1,"path":"__markdown__/directive.md","ref":"./__markdown__/directive.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/event.md","mtime":"2018-11-05T13:46:42.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-04T06:07:32.449Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"模块之间的通信","level":"1.9","depth":1,"previous":{"title":"依赖注入","level":"1.8","depth":1,"path":"__markdown__/aop.md","ref":"./__markdown__/aop.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/communication.md","mtime":"2018-11-09T16:58:37.712Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-04T06:07:32.449Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

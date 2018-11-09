@@ -9,6 +9,7 @@
 
 * [服务Service](./__markdown__/service.md)
 * [依赖注入](./__markdown__/aop.md)
+* [模块之间的通信](./__markdown__/communication.md)
 
 
 
