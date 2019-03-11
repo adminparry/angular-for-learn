@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>依赖注入 · GitBook</title>
+        <title>一目了然的示例 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="api.html" />
     
-    <link rel="prev" href="filter.html" />
+    
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -100,7 +102,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="demo.html">
+        <li class="chapter active" data-level="1.2" data-path="demo.html">
             
                 <a href="demo.html">
             
@@ -140,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="directive.html">
+        <li class="chapter " data-level="1.2.3" data-path="_directive.html">
             
-                <a href="directive.html">
+                <a href="_directive.html">
             
                     
                     指令directive
@@ -192,7 +194,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7" data-path="aop.html">
+        <li class="chapter " data-level="1.2.7" data-path="aop.html">
             
                 <a href="aop.html">
             
@@ -240,7 +242,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >依赖注入</a>
+        <a href=".." >一目了然的示例</a>
     </h1>
 </div>
 
@@ -255,7 +257,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;">&#x4F9D;&#x8D56;&#x6CE8;&#x5165;</h1>
+                                <h1 id="&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x7684;&#x793A;&#x4F8B;">&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x7684;&#x793A;&#x4F8B;</h1>
+<pre><code class="lang-html">
+<span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x540D;&#x5B57; : <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello {{name}}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -283,10 +302,14 @@
 
             
                 
-                <a href="filter.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 过滤器filter">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="api.html" class="navigation navigation-next " aria-label="Next page: 全局API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -295,7 +318,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"依赖注入","level":"1.2.7","depth":2,"previous":{"title":"过滤器filter","level":"1.2.6","depth":2,"path":"__markdown__/filter.md","ref":"./__markdown__/filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/aop.md","mtime":"2018-11-01T09:05:28.435Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T07:58:32.640Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"一目了然的示例","level":"1.2","depth":1,"next":{"title":"全局API","level":"1.2.1","depth":2,"path":"__markdown__/api.md","ref":"./__markdown__/api.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"__markdown__/demo.md","mtime":"2018-11-01T08:40:22.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T08:31:16.455Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
