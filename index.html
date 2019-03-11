@@ -1,132 +1,337 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Two-way-data-binding</title>
-</head>
-<body>
-  
-  <div id="app">
-    <input type="text" v-model="text">
-    {{ text }}
-  </div>
 
-  <script>
-    function observe (obj, vm) {
-      Object.keys(obj).forEach(function (key) {
-        defineReactive(vm, key, obj[key]);
-      })
-    }
-    function defineReactive (obj, key, val) {
-      var dep = new Dep();
-      Object.defineProperty(obj, key, {
-        get: function () {
-          // 添加订阅者 watcher 到主题对象 Dep
-          if (Dep.target) dep.addSub(Dep.target);
-          return val
-        },
-        set: function (newVal) {
-          if (newVal === val) return
-          val = newVal;
-          // 作为发布者发出通知
-          dep.notify();
-        }
-      });
-    }
-    function nodeToFragment (node, vm) {
-      var flag = document.createDocumentFragment();
-      var child;
-      // 许多同学反应看不懂这一段，这里有必要解释一下
-      // 首先，所有表达式必然会返回一个值，赋值表达式亦不例外
-      // 理解了上面这一点，就能理解 while (child = node.firstChild) 这种用法
-      // 其次，appendChild 方法有个隐蔽的地方，就是调用以后 child 会从原来 DOM 中移除
-      // 所以，第二次循环时，node.firstChild 已经不再是之前的第一个子元素了
-      while (child = node.firstChild) {
-        compile(child, vm);
-        flag.appendChild(child); // 将子节点劫持到文档片段中
-      }
-      return flag
-    }
-    function compile (node, vm) {
-      var reg = /\{\{(.*)\}\}/;
-      // 节点类型为元素
-      if (node.nodeType === 1) {
-        var attr = node.attributes;
-        // 解析属性
-        for (var i = 0; i < attr.length; i++) {
-          if (attr[i].nodeName == 'v-model') {
-            var name = attr[i].nodeValue; // 获取 v-model 绑定的属性名
-            node.addEventListener('input', function (e) {
-              // 给相应的 data 属性赋值，进而触发该属性的 set 方法
-              vm[name] = e.target.value;
-            });
-            node.value = vm[name]; // 将 data 的值赋给该 node
-            node.removeAttribute('v-model');
-          }
-        };
-        new Watcher(vm, node, name, 'input');
-      }
-      // 节点类型为 text
-      if (node.nodeType === 3) {
-        if (reg.test(node.nodeValue)) {
-          var name = RegExp.$1; // 获取匹配到的字符串
-          name = name.trim();
-          new Watcher(vm, node, name, 'text');
-        }
-      }
-    }
-    function Watcher (vm, node, name, nodeType) {
-      Dep.target = this;
-      this.name = name;
-      this.node = node;
-      this.vm = vm;
-      this.nodeType = nodeType;
-      this.update();
-      Dep.target = null;
-    }
-    Watcher.prototype = {
-      update: function () {
-        this.get();
-        if (this.nodeType == 'text') {
-          this.node.nodeValue = this.value;
-        }
-        if (this.nodeType == 'input') {
-          this.node.value = this.value;
-        }
-      },
-      // 获取 data 中的属性值
-      get: function () {
-        this.value = this.vm[this.name]; // 触发相应属性的 get
-      }
-    }
-    function Dep () {
-      this.subs = []
-    }
-    Dep.prototype = {
-      addSub: function(sub) {
-        this.subs.push(sub);
-      },
-      notify: function() {
-        this.subs.forEach(function(sub) {
-          sub.update();
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="__markdown__/demo.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="__markdown__/demo.html">
+            
+                <a href="__markdown__/demo.html">
+            
+                    
+                    一目了然的示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="__markdown__/api.html">
+            
+                <a href="__markdown__/api.html">
+            
+                    
+                    全局API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="__markdown__/expression.html">
+            
+                <a href="__markdown__/expression.html">
+            
+                    
+                    表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="__markdown__/directive.html">
+            
+                <a href="__markdown__/directive.html">
+            
+                    
+                    指令directive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="__markdown__/service.html">
+            
+                <a href="__markdown__/service.html">
+            
+                    
+                    服务service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="__markdown__/controller.html">
+            
+                <a href="__markdown__/controller.html">
+            
+                    
+                    控制器controller
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="__markdown__/filter.html">
+            
+                <a href="__markdown__/filter.html">
+            
+                    
+                    过滤器filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="__markdown__/aop.html">
+            
+                <a href="__markdown__/aop.html">
+            
+                    
+                    依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction">Introduction</h1>
+<p>&#x4F60;&#x89C9;&#x5F97;&#x4F60;&#x6CA1;&#x6709;&#x94B1;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x53BB;&#x8981;&#x996D;&#x522B;&#x4EBA;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x7ED9;&#x4F60;&#x94B1;&#x5417;&#xFF1F;&#x4F60;&#x89C9;&#x5F97;&#x4F60;&#x751F;&#x75C5;&#x4E86;&#x522B;&#x4EBA;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x7167;&#x987E;&#x4F60;&#x5417;&#xFF1F;&#x4F60;&#x89C9;&#x5F97;&#x4F60;&#x957F;&#x5F97;&#x6F02;&#x4EAE;&#x522B;&#x4EBA;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x559C;&#x6B22;&#x4F60;&#x5BF9;&#x5417;&#xFF1F;&#x4F60;&#x89C9;&#x5F97;&#x4F60;&#x8111;&#x6B8B;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x4E71;&#x7ED9;&#x5F00;&#x53D1;&#x63D0;&#x9700;&#x6C42;&#x5BF9;&#x5417;&#xFF1F;
+&#x6211;&#x53EB;&#x83B2; &#x4E4B;&#x6240;&#x4EE5;&#x8D77;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x5E0C;&#x671B;&#x6216;&#x8005;&#x544A;&#x8BEB;&#x81EA;&#x5DF1;&#x8981;&#x51FA;&#x6DE4;&#x6CE5;&#x4E0D;&#x8BA9;&#x6FEF;&#x6E05;&#x6D9F;&#x4E0D;&#x5996; &#x505A;&#x4E86;5&#x5E74;&#x7684;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C; &#x539F;&#x6765;&#x89C9;&#x5F97;&#x8D5A;&#x7684;&#x591A;&#x8DDF;&#x80FD;&#x529B;&#x6709;&#x5173;&#x7CFB; &#x6240;&#x4EE5;&#x6211;&#x5FC5;&#x987B;&#x8981;&#x5B66;&#x5230;&#x66F4;&#x591A;&#x4E1C;&#x897F; &#x53EF;&#x73B0;&#x5728;&#x6211;&#x770B;&#x5230;&#x8DDF;&#x591A;&#x7684;&#x662F;&#x53CD;&#x9762;&#x7684;&#x6548;&#x679C; &#x6BD4;&#x5982;&#x4F60;&#x60F3;&#x6323;&#x5F97;&#x66F4;&#x591A;&#x5F97;&#x5230;&#x66F4;&#x9AD8;&#x7684;&#x5730;&#x4F4D; &#x4F60;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x81EA;&#x5DF1;&#x66F4;&#x4E50;&#x89C2; &#x8BA9;&#x4F60;&#x81EA;&#x5DF1;&#x4E0D;&#x8D1F;&#x8D23;&#x4EFB; &#x4E0D;&#x5173;&#x5FC3;&#x9664;&#x4E86;&#x4F60;&#x4E2A;&#x4EBA;&#x7684;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x95EE;&#x9898; &#x505A;&#x5230;&#x8FD9;&#x4E9B;&#x4F60;&#x79BB;&#x76EE;&#x6807;&#x5C31;&#x4E0D;&#x8FDC;&#x4E86; &#x76EE;&#x524D;&#x6211;&#x7684;&#x85AA;&#x8D44;&#x6784;&#x6210;80%&#x8DDF;&#x591A;&#x7684;&#x662F;&#x6765;&#x81EA;&#x4E8E;&#x5FCD;&#x8010; </p>
+<p>&#x56DB;&#x5927;&#x540D;&#x8457; &#x589E;&#x5E7F;&#x8D24;&#x6587;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="__markdown__/demo.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 一目了然的示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"一目了然的示例","level":"1.2","depth":1,"path":"__markdown__/demo.md","ref":"./__markdown__/demo.md","articles":[{"title":"全局API","level":"1.2.1","depth":2,"path":"__markdown__/api.md","ref":"./__markdown__/api.md","articles":[]},{"title":"表达式","level":"1.2.2","depth":2,"path":"__markdown__/expression.md","ref":"./__markdown__/expression.md","articles":[]},{"title":"指令directive","level":"1.2.3","depth":2,"path":"__markdown__/directive.md","ref":"./__markdown__/directive.md","articles":[]},{"title":"服务service","level":"1.2.4","depth":2,"path":"__markdown__/service.md","ref":"./__markdown__/service.md","articles":[]},{"title":"控制器controller","level":"1.2.5","depth":2,"path":"__markdown__/controller.md","ref":"./__markdown__/controller.md","articles":[]},{"title":"过滤器filter","level":"1.2.6","depth":2,"path":"__markdown__/filter.md","ref":"./__markdown__/filter.md","articles":[]},{"title":"依赖注入","level":"1.2.7","depth":2,"path":"__markdown__/aop.md","ref":"./__markdown__/aop.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-03-11T07:36:20.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T07:58:32.640Z"},"basePath":".","book":{"language":""}});
         });
-      }
-    }
-    function Vue (options) {
-      this.data = options.data;
-      var data = this.data;
-      observe(data, this);
-      var id = options.el;
-      var dom = nodeToFragment(document.getElementById(id), this);
-      // 编译完成后，将 dom 返回到 app 中
-      document.getElementById(id).appendChild(dom); 
-    }
-    var vm = new Vue({
-      el: 'app',
-      data: {
-        text: 'hello world'
-      }
-    })
-  </script>
-</body>
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+
