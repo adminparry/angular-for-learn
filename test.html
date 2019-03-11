@@ -11,16 +11,35 @@
     <ul>
         <li ng-repeat="x in now  | orderBy:'country' | limitTo:2" >{{ (x.name | uppercase) + ', ' + x.country }}</li>
     </ul>
+    <input in2out type="text" ng-model="facker">
+    <div>{{facker}}</div>
 </body>
 <script>
     var app = angular.module("myApp", []);
     app.controller('life', function($scope){
         $scope.search = '222';
-
+        $scope.facker = 88
 
         $scope.now = [{name:'Jani',country:'Norway'},
         {name:'Hege',country:'Sweden'},
         {name:'Kai',country:'Denmark'}]
+    })
+    app.directive('in2out', function(){
+        return {
+            restrict:'ECMA',
+            require:'?ngModel',
+            link:function(scope, ele, attr, ngModel){
+                ngModel.$parsers.push(function(val){
+                debugger;
+                    return val*2
+                })
+
+                ngModel.$formatters.push(function(val){
+                    return val*8
+                })
+
+            }
+        }
     })
 </script>
 </html>
