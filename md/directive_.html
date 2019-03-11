@@ -1,0 +1,655 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>指令directive · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="service.html" />
+    
+    
+    <link rel="prev" href="expression.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="demo.html">
+            
+                <a href="demo.html">
+            
+                    
+                    一目了然的示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    全局API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="expression.html">
+            
+                <a href="expression.html">
+            
+                    
+                    表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="directive_.html">
+            
+                <a href="directive_.html">
+            
+                    
+                    指令directive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="service.html">
+            
+                <a href="service.html">
+            
+                    
+                    服务service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="controller.html">
+            
+                <a href="controller.html">
+            
+                    
+                    控制器controller
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    过滤器filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="aop.html">
+            
+                <a href="aop.html">
+            
+                    
+                    依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >指令directive</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h1>
+<p>AngularJS &#x901A;&#x8FC7;&#x88AB;&#x79F0;&#x4E3A; &#x6307;&#x4EE4; &#x7684;&#x65B0;&#x5C5E;&#x6027;&#x6765;&#x6269;&#x5C55; HTML
+AngularJS &#x901A;&#x8FC7;&#x5185;&#x7F6E;&#x7684;&#x6307;&#x4EE4;&#x6765;&#x4E3A;&#x5E94;&#x7528;&#x6DFB;&#x52A0;&#x529F;&#x80FD;
+AngularJS &#x6709;&#x81EA;&#x5DF1;&#x5185;&#x7F6E;&#x7684;&#x6307;&#x4EE4;&#x548C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ng-app</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6839;&#x5143;&#x7D20;&#x3002;</td>
+</tr>
+<tr>
+<td>ng-bind</td>
+<td style="text-align:center">&#x7ED1;&#x5B9A; HTML &#x5143;&#x7D20;&#x5230;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>ng-bind-html</td>
+<td style="text-align:center">&#x7ED1;&#x5B9A; HTML &#x5143;&#x7D20;&#x7684; innerHTML &#x5230;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x79FB;&#x9664; HTML &#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x5371;&#x9669;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td>ng-bind-template</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x66FF;&#x6362;&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;</td>
+</tr>
+<tr>
+<td>ng-blur</td>
+<td style="text-align:center">&#x89C4;&#x5B9A; blur &#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-change</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x5728;&#x5185;&#x5BB9;&#x6539;&#x53D8;&#x65F6;&#x8981;&#x6267;&#x884C;&#x7684;&#x8868;&#x8FBE;&#x5F0F;</td>
+</tr>
+<tr>
+<td>ng-checked</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x88AB;&#x9009;&#x4E2D;</td>
+</tr>
+<tr>
+<td>ng-class</td>
+<td style="text-align:center">&#x6307;&#x5B9A; HTML &#x5143;&#x7D20;&#x4F7F;&#x7528;&#x7684; CSS &#x7C7B;</td>
+</tr>
+<tr>
+<td>ng-class-even</td>
+<td style="text-align:center">&#x7C7B;&#x4F3C; ng-class&#xFF0C;&#x4F46;&#x53EA;&#x5728;&#x5076;&#x6570;&#x884C;&#x8D77;&#x4F5C;&#x7528;</td>
+</tr>
+<tr>
+<td>ng-class-odd</td>
+<td style="text-align:center">&#x7C7B;&#x4F3C; ng-class&#xFF0C;&#x4F46;&#x53EA;&#x5728;&#x5947;&#x6570;&#x884C;&#x8D77;&#x4F5C;&#x7528;</td>
+</tr>
+<tr>
+<td>ng-click</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5143;&#x7D20;&#x88AB;&#x70B9;&#x51FB;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-cloak</td>
+<td style="text-align:center">&#x5728;&#x5E94;&#x7528;&#x6B63;&#x8981;&#x52A0;&#x8F7D;&#x65F6;&#x9632;&#x6B62;&#x5176;&#x95EA;&#x70C1;</td>
+</tr>
+<tr>
+<td>ng-controller</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x7684;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;</td>
+</tr>
+<tr>
+<td>ng-copy</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x62F7;&#x8D1D;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-csp</td>
+<td style="text-align:center">&#x4FEE;&#x6539;&#x5185;&#x5BB9;&#x7684;&#x5B89;&#x5168;&#x7B56;&#x7565;</td>
+</tr>
+<tr>
+<td>ng-cut</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x526A;&#x5207;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-dblclick</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x53CC;&#x51FB;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-disabled</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x88AB;&#x7981;&#x7528;</td>
+</tr>
+<tr>
+<td>ng-focus</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x805A;&#x7126;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-form</td>
+<td style="text-align:center">&#x6307;&#x5B9A; HTML &#x8868;&#x5355;&#x7EE7;&#x627F;&#x63A7;&#x5236;&#x5668;&#x8868;&#x5355;</td>
+</tr>
+<tr>
+<td>ng-hide</td>
+<td style="text-align:center">&#x9690;&#x85CF;&#x6216;&#x663E;&#x793A; HTML &#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>ng-href</td>
+<td style="text-align:center">&#x4E3A; the &lt;a&gt; &#x5143;&#x7D20;&#x6307;&#x5B9A;&#x94FE;&#x63A5;</td>
+</tr>
+<tr>
+<td>ng-if</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E3A; false &#x79FB;&#x9664; HTML &#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>ng-include</td>
+<td style="text-align:center">&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x5305;&#x542B; HTML &#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>ng-init</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x7684;&#x521D;&#x59CB;&#x5316;&#x503C;</td>
+</tr>
+<tr>
+<td>ng-jq</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x5E93;&#xFF0C;&#x5982;&#xFF1A;jQuery</td>
+</tr>
+<tr>
+<td>ng-keydown</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x6309;&#x4E0B;&#x6309;&#x952E;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-keypress</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x6309;&#x4E0B;&#x6309;&#x952E;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-keyup</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x677E;&#x5F00;&#x6309;&#x952E;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-list</td>
+<td style="text-align:center">&#x5C06;&#x6587;&#x672C;&#x8F6C;&#x6362;&#x4E3A;&#x5217;&#x8868; (&#x6570;&#x7EC4;)</td>
+</tr>
+<tr>
+<td>ng-model</td>
+<td style="text-align:center">&#x7ED1;&#x5B9A; HTML &#x63A7;&#x5236;&#x5668;&#x7684;&#x503C;&#x5230;&#x5E94;&#x7528;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>ng-model-options</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x5982;&#x4F55;&#x66F4;&#x65B0;&#x6A21;&#x578B;</td>
+</tr>
+<tr>
+<td>ng-mousedown</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x6309;&#x4E0B;&#x9F20;&#x6807;&#x6309;&#x952E;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-mouseenter</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x9F20;&#x6807;&#x6307;&#x9488;&#x7A7F;&#x8FC7;&#x5143;&#x7D20;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-mouseleave</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x9F20;&#x6807;&#x6307;&#x9488;&#x79BB;&#x5F00;&#x5143;&#x7D20;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-mousemove</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x9F20;&#x6807;&#x6307;&#x9488;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x4E2D;&#x79FB;&#x52A8;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-mouseover</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x9F20;&#x6807;&#x6307;&#x9488;&#x4F4D;&#x4E8E;&#x5143;&#x7D20;&#x4E0A;&#x65B9;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-mouseup</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x5F53;&#x5728;&#x5143;&#x7D20;&#x4E0A;&#x677E;&#x5F00;&#x9F20;&#x6807;&#x6309;&#x94AE;&#x65F6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-non-bindable</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x6216;&#x5B50;&#x5143;&#x7D20;&#x4E0D;&#x80FD;&#x7ED1;&#x5B9A;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td>ng-open</td>
+<td style="text-align:center">&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684; open &#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>ng-options</td>
+<td style="text-align:center">&#x5728; &lt;select&gt; &#x5217;&#x8868;&#x4E2D;&#x6307;&#x5B9A; &lt;options&gt;</td>
+</tr>
+<tr>
+<td>ng-paste</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x7C98;&#x8D34;&#x4E8B;&#x4EF6;&#x7684;&#x884C;&#x4E3A;</td>
+</tr>
+<tr>
+<td>ng-pluralize</td>
+<td style="text-align:center">&#x6839;&#x636E;&#x672C;&#x5730;&#x5316;&#x89C4;&#x5219;&#x663E;&#x793A;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>ng-readonly</td>
+<td style="text-align:center">&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684; readonly &#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>ng-repeat</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x96C6;&#x5408;&#x4E2D;&#x6BCF;&#x9879;&#x6570;&#x636E;&#x7684;&#x6A21;&#x677F;</td>
+</tr>
+<tr>
+<td>ng-selected</td>
+<td style="text-align:center">&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684; selected &#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>ng-show</td>
+<td style="text-align:center">&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF; HTML &#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>ng-src</td>
+<td style="text-align:center">&#x6307;&#x5B9A; &lt;img&gt; &#x5143;&#x7D20;&#x7684; src &#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>ng-srcset</td>
+<td style="text-align:center">&#x6307;&#x5B9A; &lt;img&gt; &#x5143;&#x7D20;&#x7684; srcset &#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>ng-submit</td>
+<td style="text-align:center">&#x89C4;&#x5B9A; onsubmit &#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x6267;&#x884C;&#x7684;&#x8868;&#x8FBE;&#x5F0F;</td>
+</tr>
+<tr>
+<td>ng-switch</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>ng-transclude</td>
+<td style="text-align:center">&#x89C4;&#x5B9A;&#x586B;&#x5145;&#x7684;&#x76EE;&#x6807;&#x4F4D;&#x7F6E;</td>
+</tr>
+<tr>
+<td>ng-value</td>
+<td style="text-align:center">&#x89C4;&#x5B9A; input &#x5143;&#x7D20;&#x7684;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;">&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;</h2>
+<p>&#x8FD9;&#x91CC;&#x53CA;&#x5176;&#x9700;&#x8981;&#x8BF4;&#x4E00;&#x4E0B;&#x547D;&#x540D;&#x95EE;&#x9898;
+&#x7B2C;&#x4E00;&#x70B9;&#x5982;&#x679C;&#x662F;&#x6CE8;&#x91CA;&#x6307;&#x4EE4;&#x90A3;&#x4E48;&#x4E00;&#x5B9A;&#x662F;replace&#x4E3A;true &#x56E0;&#x4E3A;&#x6CE8;&#x91CA;&#x4E0D;&#x662F;&#x6807;&#x7B7E;&#x4E0D;&#x5B58;&#x5728;&#x5305;&#x542B;&#x5173;&#x7CFB;
+&#x7B2C;&#x4E8C;&#x70B9;&#x6307;&#x4EE4;&#x4E0D;&#x5B58;&#x5728;&#x5927;&#x5199;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x8F6C;-</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&quot;myApp&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- directive: directive-byMySelf --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">directive-by-my-self</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;directive-by-my-self&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+<span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&quot;myApp&quot;</span>, []);
+app.directive(<span class="hljs-string">&quot;directiveByMySelf&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> {
+        restrict:<span class="hljs-string">&quot;MACE&quot;</span>,
+        replace:<span class="hljs-literal">true</span>,
+        template : <span class="hljs-string">&quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;</span>
+    };
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>restrict &#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;:
+E &#x4F5C;&#x4E3A;&#x5143;&#x7D20;&#x540D;&#x4F7F;&#x7528;
+A &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x4F7F;&#x7528;
+C &#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#x4F7F;&#x7528;
+M &#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;&#x4F7F;&#x7528;
+restrict &#x9ED8;&#x8BA4;&#x503C;&#x4E3A; EA, &#x5373;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5143;&#x7D20;&#x540D;&#x548C;&#x5C5E;&#x6027;&#x540D;&#x6765;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x3002;</p>
+<h3 id="&#x6307;&#x4EE4;&#x7684;&#x5C5E;&#x6027;">&#x6307;&#x4EE4;&#x7684;&#x5C5E;&#x6027;</h3>
+<p>1.restrict
+restrict: &apos;AE&apos;,// &#x6307;&#x4EE4;&#x7C7B;&#x578B;  E&#xFF1A;element A&#xFF1A;attribute M&#xFF1A;comment C: class</p>
+<p>2.template&#x548C;templateUrl
+&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;</p>
+<p>3.replace&#x548C;transclude
+&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x66FF;&#x6362;&#x5F53;&#x524D;&#x5143;&#x7D20;
+&#x662F;&#x5426;&#x4F7F;&#x7528;ng-transculde&#x6765;&#x5305;&#x542B;html&#x4E2D;&#x6307;&#x4EE4;&#x5305;&#x542B;&#x7684;&#x539F;&#x6709;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;true/false</p>
+<pre><code class="lang-html">var app = angular.module(&quot;app&quot;, [])
+    .directive(&quot;hello&quot;, function () {
+        var option = {
+            restrict: &quot;AECM&quot;,
+            template: &quot;<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Hello, Directive<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ng-transclude</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&quot;,
+            transculde: true  //&#x8FD9;&#x91CC;transculde&#x4E3A;true&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x6765;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x653E;&#x5728;&#x6709;ng-transclude&#x5C5E;&#x6027;&#x7684;&#x6807;&#x7B7E;&#x5185;
+        };
+        return option;
+    })
+</code></pre>
+<p>4.&#x6307;&#x4EE4;&#x4E2D;&#x7684;scope
+@ &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5C40;&#x90E8; scope &#x5C5E;&#x6027;&#x5230;&#x5F53;&#x524D; dom &#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x3002;&#x7ED3;&#x679C;&#x603B;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x56E0;&#x4E3A; dom &#x5C5E;&#x6027;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&amp; &#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x5728;&#x7236; scope &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; attr &#x540D;&#x79F0;&#xFF0C;&#x5219;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x672C;&#x5730;&#x540D;&#x79F0;&#x3002;
+= &#x901A;&#x8FC7; directive &#x7684; attr &#x5C5E;&#x6027;&#x7684;&#x503C;&#x5728;&#x5C40;&#x90E8; scope &#x7684;&#x5C5E;&#x6027;&#x548C;&#x7236; scope &#x5C5E;&#x6027;&#x540D;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;</p>
+<p>5.controller&#x3001;require&#x4EE5;&#x53CA;link</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&quot;myApp&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- directive: directive-byMySelf --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">directive-by-my-self</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;directive-by-my-self&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+<span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&quot;myApp&quot;</span>, []);
+app.directive(<span class="hljs-string">&quot;directiveByMySelf&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> {
+        restrict:<span class="hljs-string">&quot;MACE&quot;</span>,
+        replace:<span class="hljs-literal">true</span>,
+        template : <span class="hljs-string">&quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;</span>
+    };
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="&#x5185;&#x7F6E;&#x6307;&#x4EE4;">&#x5185;&#x7F6E;&#x6307;&#x4EE4;</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="expression.html" class="navigation navigation-prev " aria-label="Previous page: 表达式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="service.html" class="navigation navigation-next " aria-label="Next page: 服务service">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"指令directive","level":"1.2.3","depth":2,"next":{"title":"服务service","level":"1.2.4","depth":2,"path":"md/service.md","ref":"./md/service.md","articles":[]},"previous":{"title":"表达式","level":"1.2.2","depth":2,"path":"md/expression.md","ref":"./md/expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/directive_.md","mtime":"2018-12-30T02:59:41.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T08:39:41.954Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
