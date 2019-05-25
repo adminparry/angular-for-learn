@@ -1,0 +1,433 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>全局API · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="expression.html" />
+    
+    
+    <link rel="prev" href="demo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="demo.html">
+            
+                <a href="demo.html">
+            
+                    
+                    一目了然的示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    全局API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="expression.html">
+            
+                <a href="expression.html">
+            
+                    
+                    表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    指令directive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="event.html">
+            
+                <a href="event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="service.html">
+            
+                <a href="service.html">
+            
+                    
+                    服务Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="aop.html">
+            
+                <a href="aop.html">
+            
+                    
+                    依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="communication.html">
+            
+                <a href="communication.html">
+            
+                    
+                    模块之间的通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="angular4u.html">
+            
+                <a href="angular4u.html">
+            
+                    
+                    angular4u
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >全局API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5168;&#x5C40;api">&#x5168;&#x5C40;api</h1>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th style="text-align:center">&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular.lowercase()</td>
+<td style="text-align:center">&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5C0F;&#x5199;</td>
+</tr>
+<tr>
+<td>angular.uppercase()</td>
+<td style="text-align:center">&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;</td>
+</tr>
+<tr>
+<td>angular.copy()</td>
+<td style="text-align:center">&#x6570;&#x7EC4;&#x6216;&#x5BF9;&#x8C61;&#x6DF1;&#x5EA6;&#x62F7;&#x8D1D;</td>
+</tr>
+<tr>
+<td>angular.forEach()</td>
+<td style="text-align:center">&#x5BF9;&#x8C61;&#x6216;&#x6570;&#x7EC4;&#x7684;&#x8FED;&#x4EE3;&#x51FD;&#x6570;</td>
+</tr>
+<tr>
+<td>angular.isArray()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x6570;&#x7EC4;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isDate()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x65E5;&#x671F;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isDefined()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x5DF2;&#x5B9A;&#x4E49;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isElement()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F; DOM &#x5143;&#x7D20;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isFunction()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x51FD;&#x6570;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isNumber()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x6570;&#x5B57;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isObject()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isString()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.isUndefined()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x5F15;&#x7528;&#x7684;&#x672A;&#x5B9A;&#x4E49;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.equals()</td>
+<td style="text-align:center">&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x76F8;&#x7B49;&#x8FD4;&#x56DE; true</td>
+</tr>
+<tr>
+<td>angular.fromJson()</td>
+<td style="text-align:center">&#x53CD;&#x5E8F;&#x5217;&#x5316; JSON &#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>angular.toJson()</td>
+<td style="text-align:center">&#x5E8F;&#x5217;&#x5316; JSON &#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>angular.bootstrap()</td>
+<td style="text-align:center">&#x624B;&#x52A8;&#x542F;&#x52A8; AngularJS</td>
+</tr>
+<tr>
+<td>angular.element()</td>
+<td style="text-align:center">&#x5305;&#x88F9;&#x7740;&#x4E00;&#x90E8;&#x5206;DOM element&#x6216;&#x8005;&#x662F;HTML&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x628A;&#x5B83;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;jQuery&#x5143;&#x7D20;&#x6765;&#x5904;&#x7406;&#x3002;</td>
+</tr>
+<tr>
+<td>angular.module()</td>
+<td style="text-align:center">&#x521B;&#x5EFA;&#xFF0C;&#x6CE8;&#x518C;&#x6216;&#x68C0;&#x7D22; AngularJS &#x6A21;&#x5757;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="demo.html" class="navigation navigation-prev " aria-label="Previous page: 一目了然的示例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="expression.html" class="navigation navigation-next " aria-label="Next page: 表达式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"全局API","level":"1.3","depth":1,"next":{"title":"表达式","level":"1.4","depth":1,"path":"md/expression.md","ref":"./md/expression.md","articles":[]},"previous":{"title":"一目了然的示例","level":"1.2","depth":1,"path":"md/demo.md","ref":"./md/demo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/api.md","mtime":"2018-11-05T13:52:57.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-25T13:21:25.385Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
