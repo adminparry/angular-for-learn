@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="service.html" />
+    <link rel="next" href="event.html" />
     
     
     <link rel="prev" href="expression.html" />
@@ -113,10 +113,9 @@
             
 
             
-            <ul class="articles">
-                
+        </li>
     
-        <li class="chapter " data-level="1.2.1" data-path="api.html">
+        <li class="chapter " data-level="1.3" data-path="api.html">
             
                 <a href="api.html">
             
@@ -129,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="expression.html">
+        <li class="chapter " data-level="1.4" data-path="expression.html">
             
                 <a href="expression.html">
             
@@ -142,9 +141,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="directive_.html">
+        <li class="chapter active" data-level="1.5" data-path="directive.html">
             
-                <a href="directive_.html">
+                <a href="directive.html">
             
                     
                     指令directive
@@ -155,12 +154,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="service.html">
+        <li class="chapter " data-level="1.6" data-path="event.html">
+            
+                <a href="event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="service.html">
             
                 <a href="service.html">
             
                     
-                    服务service
+                    服务Service
             
                 </a>
             
@@ -168,33 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="controller.html">
-            
-                <a href="controller.html">
-            
-                    
-                    控制器controller
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.6" data-path="filter.html">
-            
-                <a href="filter.html">
-            
-                    
-                    过滤器filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7" data-path="aop.html">
+        <li class="chapter " data-level="1.8" data-path="aop.html">
             
                 <a href="aop.html">
             
@@ -207,12 +193,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="ngModel.html">
+        <li class="chapter " data-level="1.9" data-path="communication.html">
             
-                <a href="ngModel.html">
+                <a href="communication.html">
             
                     
-                    修改双向数据模型
+                    模块之间的通信
             
                 </a>
             
@@ -220,8 +206,16 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10" data-path="angular4u.html">
+            
+                <a href="angular4u.html">
+            
+                    
+                    angular4u
+            
+                </a>
+            
 
-            </ul>
             
         </li>
     
@@ -277,11 +271,15 @@ AngularJS &#x6709;&#x81EA;&#x5DF1;&#x5185;&#x7F6E;&#x7684;&#x6307;&#x4EE4;&#x548
 <table>
 <thead>
 <tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
+<th>&#x6307;&#x4EE4;</th>
+<th style="text-align:center">&#x63CF;&#x8FF0;</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>ng-app</td>
+<td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6839;&#x5143;&#x7D20;&#x3002;</td>
+</tr>
 <tr>
 <td>ng-app</td>
 <td style="text-align:center">&#x5B9A;&#x4E49;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6839;&#x5143;&#x7D20;&#x3002;</td>
@@ -534,58 +532,6 @@ A &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x4F7F;&#x7528;
 C &#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#x4F7F;&#x7528;
 M &#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;&#x4F7F;&#x7528;
 restrict &#x9ED8;&#x8BA4;&#x503C;&#x4E3A; EA, &#x5373;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5143;&#x7D20;&#x540D;&#x548C;&#x5C5E;&#x6027;&#x540D;&#x6765;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x3002;</p>
-<h3 id="&#x6307;&#x4EE4;&#x7684;&#x5C5E;&#x6027;">&#x6307;&#x4EE4;&#x7684;&#x5C5E;&#x6027;</h3>
-<p>1.restrict
-restrict: &apos;AE&apos;,// &#x6307;&#x4EE4;&#x7C7B;&#x578B;  E&#xFF1A;element A&#xFF1A;attribute M&#xFF1A;comment C: class</p>
-<p>2.template&#x548C;templateUrl
-&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;</p>
-<p>3.replace&#x548C;transclude
-&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x66FF;&#x6362;&#x5F53;&#x524D;&#x5143;&#x7D20;
-&#x662F;&#x5426;&#x4F7F;&#x7528;ng-transculde&#x6765;&#x5305;&#x542B;html&#x4E2D;&#x6307;&#x4EE4;&#x5305;&#x542B;&#x7684;&#x539F;&#x6709;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;true/false</p>
-<pre><code class="lang-html">var app = angular.module(&quot;app&quot;, [])
-    .directive(&quot;hello&quot;, function () {
-        var option = {
-            restrict: &quot;AECM&quot;,
-            template: &quot;<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Hello, Directive<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">ng-transclude</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&quot;,
-            transculde: true  //&#x8FD9;&#x91CC;transculde&#x4E3A;true&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x6765;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x653E;&#x5728;&#x6709;ng-transclude&#x5C5E;&#x6027;&#x7684;&#x6807;&#x7B7E;&#x5185;
-        };
-        return option;
-    })
-</code></pre>
-<p>4.&#x6307;&#x4EE4;&#x4E2D;&#x7684;scope
-@ &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5C40;&#x90E8; scope &#x5C5E;&#x6027;&#x5230;&#x5F53;&#x524D; dom &#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x3002;&#x7ED3;&#x679C;&#x603B;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x56E0;&#x4E3A; dom &#x5C5E;&#x6027;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
-&amp; &#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x5728;&#x7236; scope &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; attr &#x540D;&#x79F0;&#xFF0C;&#x5219;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x672C;&#x5730;&#x540D;&#x79F0;&#x3002;
-= &#x901A;&#x8FC7; directive &#x7684; attr &#x5C5E;&#x6027;&#x7684;&#x503C;&#x5728;&#x5C40;&#x90E8; scope &#x7684;&#x5C5E;&#x6027;&#x548C;&#x7236; scope &#x5C5E;&#x6027;&#x540D;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;</p>
-<p>5.controller&#x3001;require&#x4EE5;&#x53CA;link</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&quot;myApp&quot;</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- directive: directive-byMySelf --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">directive-by-my-self</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;directive-by-my-self&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">directive-by-my-self</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-<span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&quot;myApp&quot;</span>, []);
-app.directive(<span class="hljs-string">&quot;directiveByMySelf&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> {
-        restrict:<span class="hljs-string">&quot;MACE&quot;</span>,
-        replace:<span class="hljs-literal">true</span>,
-        template : <span class="hljs-string">&quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;</span>
-    };
-});
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre>
-<h2 id="&#x5185;&#x7F6E;&#x6307;&#x4EE4;">&#x5185;&#x7F6E;&#x6307;&#x4EE4;</h2>
 
                                 
                                 </section>
@@ -618,7 +564,7 @@ app.directive(<span class="hljs-string">&quot;directiveByMySelf&quot;</span>, <s
                 </a>
                 
                 
-                <a href="service.html" class="navigation navigation-next " aria-label="Next page: 服务service">
+                <a href="event.html" class="navigation navigation-next " aria-label="Next page: 事件">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -629,7 +575,7 @@ app.directive(<span class="hljs-string">&quot;directiveByMySelf&quot;</span>, <s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"指令directive","level":"1.2.3","depth":2,"next":{"title":"服务service","level":"1.2.4","depth":2,"path":"md/service.md","ref":"./md/service.md","articles":[]},"previous":{"title":"表达式","level":"1.2.2","depth":2,"path":"md/expression.md","ref":"./md/expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/directive_.md","mtime":"2018-12-30T02:59:41.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T12:09:13.507Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"指令directive","level":"1.5","depth":1,"next":{"title":"事件","level":"1.6","depth":1,"path":"md/event.md","ref":"./md/event.md","articles":[]},"previous":{"title":"表达式","level":"1.4","depth":1,"path":"md/expression.md","ref":"./md/expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/directive.md","mtime":"2018-11-05T13:48:28.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-25T13:21:25.385Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

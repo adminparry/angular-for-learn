@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>服务service · GitBook</title>
+        <title>服务Service · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="controller.html" />
+    <link rel="next" href="aop.html" />
     
     
-    <link rel="prev" href="directive_.html" />
+    <link rel="prev" href="event.html" />
     
 
     </head>
@@ -113,10 +113,9 @@
             
 
             
-            <ul class="articles">
-                
+        </li>
     
-        <li class="chapter " data-level="1.2.1" data-path="api.html">
+        <li class="chapter " data-level="1.3" data-path="api.html">
             
                 <a href="api.html">
             
@@ -129,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="expression.html">
+        <li class="chapter " data-level="1.4" data-path="expression.html">
             
                 <a href="expression.html">
             
@@ -142,9 +141,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="directive_.html">
+        <li class="chapter " data-level="1.5" data-path="directive.html">
             
-                <a href="directive_.html">
+                <a href="directive.html">
             
                     
                     指令directive
@@ -155,12 +154,25 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="service.html">
+        <li class="chapter " data-level="1.6" data-path="event.html">
+            
+                <a href="event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="service.html">
             
                 <a href="service.html">
             
                     
-                    服务service
+                    服务Service
             
                 </a>
             
@@ -168,33 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="controller.html">
-            
-                <a href="controller.html">
-            
-                    
-                    控制器controller
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.6" data-path="filter.html">
-            
-                <a href="filter.html">
-            
-                    
-                    过滤器filter
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.7" data-path="aop.html">
+        <li class="chapter " data-level="1.8" data-path="aop.html">
             
                 <a href="aop.html">
             
@@ -207,12 +193,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="ngModel.html">
+        <li class="chapter " data-level="1.9" data-path="communication.html">
             
-                <a href="ngModel.html">
+                <a href="communication.html">
             
                     
-                    修改双向数据模型
+                    模块之间的通信
             
                 </a>
             
@@ -220,8 +206,16 @@
             
         </li>
     
+        <li class="chapter " data-level="1.10" data-path="angular4u.html">
+            
+                <a href="angular4u.html">
+            
+                    
+                    angular4u
+            
+                </a>
+            
 
-            </ul>
             
         </li>
     
@@ -255,7 +249,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >服务service</a>
+        <a href=".." >服务Service</a>
     </h1>
 </div>
 
@@ -270,37 +264,95 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x670D;&#x52A1;service">&#x670D;&#x52A1;service</h1>
-<p>$jsonpCallbacks</p>
-<p>$log</p>
-<p>$http</p>
-<p>$compile</p>
-<p>$anchorScroll</p>
-<p>$interval</p>
-<p>$animate</p>
-<p>$q</p>
-<p>$httpParamSerializerJQLike</p>
-<p>$templateRequest</p>
-<p>$modelOptions</p>
-<p>$interpolate</p>
-<p>$exceptionHandler</p>
-<p>$controller</p>
-<p>$templateCache</p>
-<p>$rootScope</p>
-<p>$document</p>
-<p>$parse</p>
-<p>$httpBackend</p>
-<p>$cacheFactory</p>
-<p>$filter</p>
-<p>$location</p>
-<p>$rootElement</p>
-<p>$locale</p>
-<p>$sce</p>
-<p>$animateCss</p>
-<p>$sceDelegate</p>
-<p>$window</p>
-<p>$timeout</p>
-<p>$httpParamSerializer</p>
+                                <h1 id="&#x670D;&#x52A1;service">&#x670D;&#x52A1;Service</h1>
+<p>&#x5185;&#x7F6E;&#x670D;&#x52A1;</p>
+<h2 id="scope">$scope</h2>
+<h2 id="rootscope">$rootScope</h2>
+<p>&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;</p>
+<pre><code class="lang-html">
+<span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&apos;myApp&apos;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&apos;utf-8&apos;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">&apos;myCtrl1&apos;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>myCtrl1 : {{name}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>myCtrl1 : {{$root.name}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">&apos;myCtrl2&apos;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>myCtrl2 : {{name}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+
+
+            <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&quot;myApp&quot;</span>,[])
+            app.controller(<span class="hljs-string">&quot;myCtrl1&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, $rootScope)</span></span>{
+                $scope.name = <span class="hljs-string">&apos;scope&apos;</span>;
+            })
+            app.controller(<span class="hljs-string">&quot;myCtrl2&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, $rootScope)</span></span>{
+                $rootScope.name = <span class="hljs-string">&apos;rootScope&apos;</span>;
+            })
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="location">$location</h2>
+<h2 id="http">$http</h2>
+<h2 id="timeout">$timeout</h2>
+<h2 id="interval">$interval</h2>
+<h1 id="&#x81EA;&#x5B9A;&#x4E49;service">&#x81EA;&#x5B9A;&#x4E49;Service</h1>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">ng-app</span>=<span class="hljs-string">&apos;myApp&apos;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&apos;utf-8&apos;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">&apos;CalcController&apos;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ng-model</span>=<span class="hljs-string">&quot;number&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;square()&quot;</span>&gt;</span>pow<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>myCtrl1 : {{result}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+
+
+            <span class="hljs-keyword">var</span> mainApp = angular.module(<span class="hljs-string">&quot;myApp&quot;</span>,[])
+            mainApp.config(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($provide)</span> </span>{
+                $provide.provider(<span class="hljs-string">&apos;MathService&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                   <span class="hljs-keyword">this</span>.$<span class="hljs-keyword">get</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                      <span class="hljs-keyword">var</span> factory = {};
+
+                      factory.multiply = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{
+                         <span class="hljs-keyword">return</span> a * b;
+                      }
+                      <span class="hljs-keyword">return</span> factory;
+                   };
+                });
+             });
+
+             mainApp.value(<span class="hljs-string">&quot;defaultInput&quot;</span>, <span class="hljs-number">5</span>);
+
+             mainApp.service(<span class="hljs-string">&apos;CalcService&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(MathService)</span></span>{
+                <span class="hljs-keyword">this</span>.square = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span> </span>{
+                   <span class="hljs-keyword">return</span> MathService.multiply(a,a);
+                }
+             });
+
+             mainApp.controller(<span class="hljs-string">&apos;CalcController&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, CalcService, defaultInput)</span> </span>{
+                $scope.number = defaultInput;
+                $scope.result = CalcService.square($scope.number);
+
+                $scope.square = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                   $scope.result = CalcService.square($scope.number);
+                }
+             });
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -328,12 +380,12 @@
 
             
                 
-                <a href="directive_.html" class="navigation navigation-prev " aria-label="Previous page: 指令directive">
+                <a href="event.html" class="navigation navigation-prev " aria-label="Previous page: 事件">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="controller.html" class="navigation navigation-next " aria-label="Next page: 控制器controller">
+                <a href="aop.html" class="navigation navigation-next " aria-label="Next page: 依赖注入">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -344,7 +396,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"服务service","level":"1.2.4","depth":2,"next":{"title":"控制器controller","level":"1.2.5","depth":2,"path":"md/controller.md","ref":"./md/controller.md","articles":[]},"previous":{"title":"指令directive","level":"1.2.3","depth":2,"path":"md/directive_.md","ref":"./md/directive_.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/service.md","mtime":"2019-03-11T06:11:37.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-11T12:09:13.507Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"服务Service","level":"1.7","depth":1,"next":{"title":"依赖注入","level":"1.8","depth":1,"path":"md/aop.md","ref":"./md/aop.md","articles":[]},"previous":{"title":"事件","level":"1.6","depth":1,"path":"md/event.md","ref":"./md/event.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/service.md","mtime":"2018-11-04T07:22:53.851Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-25T13:21:25.385Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
